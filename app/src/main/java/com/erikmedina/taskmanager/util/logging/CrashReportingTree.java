@@ -1,4 +1,4 @@
-package com.erikmedina.taskmanager.util;
+package com.erikmedina.taskmanager.util.logging;
 
 import android.util.Log;
 
