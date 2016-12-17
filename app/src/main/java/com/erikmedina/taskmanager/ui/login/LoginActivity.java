@@ -1,5 +1,8 @@
 package com.erikmedina.taskmanager.ui.login;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+
 import com.erikmedina.taskmanager.R;
 import com.erikmedina.taskmanager.ui.base.BaseActivity;
 
@@ -8,6 +11,13 @@ import com.erikmedina.taskmanager.ui.base.BaseActivity;
  */
 
 public class LoginActivity extends BaseActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setTitle(R.string.login_name);
+    }
 
     @Override
     protected int getLayoutResourceId() {

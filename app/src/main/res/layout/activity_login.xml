@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:background="@color/colorPrimary"
+    android:gravity="center_vertical">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_username_login"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:layout_widthPercent="80%">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tiet_username_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username"
+            android:inputType="text" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_password_login"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_username_login"
+        android:layout_centerHorizontal="true"
+        app:layout_widthPercent="80%">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tiet_password_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/til_password_login"
+        android:layout_centerHorizontal="true"
+        android:text="@string/sign_in"
+        android:layout_margin="10dp"
+        app:layout_widthPercent="30%"
+        android:background="@color/colorPrimaryDark"/>
 
 </android.support.percent.PercentRelativeLayout>
