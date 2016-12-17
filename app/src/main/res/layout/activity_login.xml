@@ -39,6 +39,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
+        android:id="@+id/b_sign_in_login"
         android:layout_height="wrap_content"
         android:layout_below="@+id/til_password_login"
         android:layout_centerHorizontal="true"
