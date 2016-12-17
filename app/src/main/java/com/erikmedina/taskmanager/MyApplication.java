@@ -2,7 +2,9 @@ package com.erikmedina.taskmanager;
 
 import com.erikmedina.taskmanager.util.logging.CrashReportingTree;
 import com.facebook.stetho.Stetho;
+import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
+import io.realm.Realm;
 import timber.log.Timber;
 
 /**
@@ -15,12 +17,18 @@ public class MyApplication extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
-        Stetho.initializeWithDefaults(this);
-
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
         } else {
             Timber.plant(new CrashReportingTree());
         }
+
+        Realm.init(this);
+        Stetho.initialize(
+                Stetho.newInitializerBuilder(this)
+                        .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                        .enableWebKitInspector(RealmInspectorModulesProvider.builder(this).build())
+                        .build());
+
     }
 }
