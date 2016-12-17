@@ -15,4 +15,9 @@ public class LoginPresenterImpl implements LoginPresenter {
     public void checkCredentials(String username, String password) {
 
     }
+
+    @Override
+    public void registerClicked() {
+        view.goToRegistration();
+    }
 }

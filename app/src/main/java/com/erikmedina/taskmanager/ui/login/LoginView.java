@@ -5,4 +5,6 @@ package com.erikmedina.taskmanager.ui.login;
  */
 
 public interface LoginView {
+
+    void goToRegistration();
 }

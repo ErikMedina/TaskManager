@@ -8,13 +8,13 @@
     android:gravity="center_vertical">
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_username_login"
+        android:id="@+id/til_username_registration"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         app:layout_widthPercent="80%">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tiet_username_login"
+            android:id="@+id/tiet_username_registration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/username"
@@ -23,14 +23,14 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_password_login"
+        android:id="@+id/til_password_registration"
         android:layout_height="wrap_content"
-        android:layout_below="@id/til_username_login"
+        android:layout_below="@id/til_username_registration"
         android:layout_centerHorizontal="true"
         app:layout_widthPercent="80%">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tiet_password_login"
+            android:id="@+id/tiet_password_registration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
@@ -39,23 +39,13 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/b_sign_in_login"
+        android:id="@+id/b_sign_in_registration"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/til_password_login"
+        android:layout_below="@+id/til_password_registration"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:background="@color/colorPrimaryDark"
-        android:text="@string/sign_in"
-        app:layout_widthPercent="30%" />
-
-    <TextView
-        android:id="@+id/tv_register_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/b_sign_in_login"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
         android:text="@string/register"
-        android:textColor="@android:color/white" />
+        app:layout_widthPercent="30%" />
 
 </android.support.percent.PercentRelativeLayout>
