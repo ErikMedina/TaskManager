@@ -5,6 +5,7 @@ import com.facebook.stetho.Stetho;
 import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import timber.log.Timber;
 
 /**
@@ -24,6 +25,8 @@ public class MyApplication extends android.app.Application {
         }
 
         Realm.init(this);
+        RealmConfiguration config = new RealmConfiguration.Builder().build();
+        Realm.setDefaultConfiguration(config);
 
         Stetho.initialize(
                 Stetho.newInitializerBuilder(this)

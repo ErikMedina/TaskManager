@@ -1,4 +1,6 @@
-package com.erikmedina.taskmanager.domain.interactor.registration;
+package com.erikmedina.taskmanager.ui.registration;
+
+import com.erikmedina.taskmanager.model.User;
 
 /**
  * Created by erik on 17/12/16.
@@ -13,5 +15,5 @@ public interface RegistrationInteractor {
         void onRegistrationError(String error);
     }
 
-    void execute(String username, String password, String userType, OnRegistrationListener listener);
+    void persistUser(User user, OnRegistrationListener listener);
 }

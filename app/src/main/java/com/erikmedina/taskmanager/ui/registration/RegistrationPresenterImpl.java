@@ -1,6 +1,6 @@
 package com.erikmedina.taskmanager.ui.registration;
 
-import com.erikmedina.taskmanager.domain.interactor.registration.RegistrationInteractor;
+import com.erikmedina.taskmanager.model.User;
 
 /**
  * Created by erik on 17/12/16.
@@ -12,11 +12,13 @@ public class RegistrationPresenterImpl implements RegistrationPresenter {
 
     public RegistrationPresenterImpl(RegistrationView view) {
         this.view = view;
+        this.interactor =new RegistrationInteractorImpl(this);
     }
 
     @Override
     public void registerUser(String username, String password, String userType) {
-        interactor.execute(username, password, userType, new RegistrationInteractor.OnRegistrationListener() {
+        User user = new User(username, password, userType);
+        interactor.persistUser(user, new RegistrationInteractor.OnRegistrationListener() {
             @Override
             public void onRegistrationSuccess(boolean isSuccessfulRegistration) {
 
