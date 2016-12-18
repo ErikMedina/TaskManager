@@ -24,11 +24,11 @@ public class MyApplication extends android.app.Application {
         }
 
         Realm.init(this);
+
         Stetho.initialize(
                 Stetho.newInitializerBuilder(this)
                         .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
                         .enableWebKitInspector(RealmInspectorModulesProvider.builder(this).build())
                         .build());
-
     }
 }

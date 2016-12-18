@@ -18,6 +18,8 @@ public class RegistrationActivity extends BaseActivity implements RegistrationVi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        getSupportActionBar().setTitle(R.string.registration_name);
+
         presenter = new RegistrationPresenterImpl(this);
     }
 

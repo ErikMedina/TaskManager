@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="registration_name">Registration</string>
+
+    <string-array name="array_user_type">
+        <item>Admin</item>
+        <item>Technician</item>
+    </string-array>
+</resources>
