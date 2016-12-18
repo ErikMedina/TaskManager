@@ -5,4 +5,6 @@ package com.erikmedina.taskmanager.ui.registration;
  */
 
 public interface RegistrationPresenter {
+
+    void registerUser(String username, String password, String userType);
 }

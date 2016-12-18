@@ -8,7 +8,8 @@ import com.erikmedina.taskmanager.domain.interactor.registration.RegistrationInt
 public class RegistrationRepositoryImpl implements RegistrationRepository {
 
     @Override
-    public void persistUser(String username, String password, String userType, RegistrationInteractor.OnRegistrationListener listener) {
+    public void persistUser(String username, String password, String userType,
+                            RegistrationInteractor.OnRegistrationListener listener) {
 
     }
 }

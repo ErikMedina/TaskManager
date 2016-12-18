@@ -13,5 +13,5 @@ public interface RegistrationInteractor {
         void onRegistrationError(String error);
     }
 
-    void execute(String username, String password, String userType);
+    void execute(String username, String password, String userType, OnRegistrationListener listener);
 }
