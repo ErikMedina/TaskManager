@@ -6,6 +6,6 @@ package com.erikmedina.taskmanager.util;
 
 public class Utils {
 
-    public static final String ADMIN="admin";
-    public static final String TECHNICIAN="technician";
+    public static final String ADMIN="Admin";
+    public static final String TECHNICIAN="Technician";
 }

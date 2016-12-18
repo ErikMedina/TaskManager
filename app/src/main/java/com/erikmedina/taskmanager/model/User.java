@@ -1,7 +1,6 @@
 package com.erikmedina.taskmanager.model;
 
 import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by erik on 18/12/16.
@@ -9,8 +8,6 @@ import io.realm.annotations.PrimaryKey;
 
 public class User extends RealmObject {
 
-    @PrimaryKey
-    private int id;
     private String username;
     private String password;
     private String userType;
@@ -22,14 +19,6 @@ public class User extends RealmObject {
         this.username = username;
         this.password = password;
         this.userType = userType;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getUsername() {
@@ -54,5 +43,14 @@ public class User extends RealmObject {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", userType='" + userType + '\'' +
+                '}';
     }
 }

@@ -8,7 +8,7 @@ import com.erikmedina.taskmanager.model.User;
 public class RegistrationPresenterImpl implements RegistrationPresenter {
 
     RegistrationView view;
-    RegistrationInteractor interactor;
+    private RegistrationInteractor interactor;
 
     public RegistrationPresenterImpl(RegistrationView view) {
         this.view = view;

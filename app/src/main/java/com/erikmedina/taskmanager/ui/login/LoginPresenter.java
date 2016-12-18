@@ -6,7 +6,7 @@ package com.erikmedina.taskmanager.ui.login;
 
 public interface LoginPresenter {
 
-    void checkCredentials(String username, String password);
+    void signInButtonClicked(String username, String password);
 
     void registerClicked();
 }

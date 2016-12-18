@@ -20,7 +20,7 @@ public class RegistrationInteractorImpl implements RegistrationInteractor {
         Realm realm = Realm.getDefaultInstance();
         try {
             realm.beginTransaction();
-            realm.copyToRealmOrUpdate(user);
+            realm.copyToRealm(user);
             realm.commitTransaction();
         } finally {
             realm.close();

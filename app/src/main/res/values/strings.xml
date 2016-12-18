@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TaskManager</string>
+    <string name="error_credentials_not_valid">Credentials are not valid</string>
 </resources>

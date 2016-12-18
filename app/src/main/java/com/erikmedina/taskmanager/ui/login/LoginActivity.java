@@ -4,12 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.erikmedina.taskmanager.R;
+import com.erikmedina.taskmanager.ui.admin.AdminActivity;
 import com.erikmedina.taskmanager.ui.base.BaseActivity;
 import com.erikmedina.taskmanager.ui.registration.RegistrationActivity;
+import com.erikmedina.taskmanager.ui.technician.TechnicianActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -29,6 +34,8 @@ public class LoginActivity extends BaseActivity implements LoginView {
     Button bSignInLogin;
     @BindView(R.id.tv_register_login)
     TextView tvRegisterLogin;
+    @BindView(R.id.pb_login)
+    ProgressBar pbLogin;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,12 +52,12 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @OnClick(R.id.b_sign_in_login)
     public void onSignInButtonClicked() {
-        presenter.checkCredentials(tietUsernameLogin.getText().toString(),
+        presenter.signInButtonClicked(tietUsernameLogin.getText().toString(),
                 tietPasswordLogin.getText().toString());
     }
 
     @OnClick(R.id.tv_register_login)
-    public void onRegisterClicked(){
+    public void onRegisterClicked() {
         presenter.registerClicked();
     }
 
@@ -58,5 +65,42 @@ public class LoginActivity extends BaseActivity implements LoginView {
     public void goToRegistration() {
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void showProgressBar() {
+        pbLogin.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void dismissProgressBar() {
+        pbLogin.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void goToAdmin() {
+        Intent intent = new Intent(this, AdminActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void goToTechnician() {
+        Intent intent = new Intent(this, TechnicianActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void disableSignInButton() {
+        bSignInLogin.setEnabled(false);
+    }
+
+    @Override
+    public void enableSignInButton() {
+        bSignInLogin.setEnabled(true);
     }
 }
