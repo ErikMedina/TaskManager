@@ -1,5 +1,6 @@
 package com.erikmedina.taskmanager.model;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 
 /**
@@ -11,6 +12,7 @@ public class User extends RealmObject {
     private String username;
     private String password;
     private String userType;
+    private RealmList<Task> tasks;
 
     public User() {
     }
@@ -45,12 +47,11 @@ public class User extends RealmObject {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", userType='" + userType + '\'' +
-                '}';
+    public RealmList<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(RealmList<Task> tasks) {
+        this.tasks = tasks;
     }
 }

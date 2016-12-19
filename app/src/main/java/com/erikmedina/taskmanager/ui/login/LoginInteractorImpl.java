@@ -9,12 +9,6 @@ import io.realm.Realm;
  */
 public class LoginInteractorImpl implements LoginInteractor {
 
-    LoginPresenter loginPresenter;
-
-    public LoginInteractorImpl(LoginPresenter loginPresenter) {
-        this.loginPresenter = loginPresenter;
-    }
-
     @Override
     public void checkCredentials(String username, String password, OnLoginListener listener) {
         Realm realm = Realm.getDefaultInstance();

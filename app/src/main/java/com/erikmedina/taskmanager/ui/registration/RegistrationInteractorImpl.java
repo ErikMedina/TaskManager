@@ -9,12 +9,6 @@ import io.realm.Realm;
  */
 public class RegistrationInteractorImpl implements RegistrationInteractor {
 
-    RegistrationPresenter registrationPresenter;
-
-    public RegistrationInteractorImpl(RegistrationPresenter registrationPresenter) {
-        this.registrationPresenter = registrationPresenter;
-    }
-
     @Override
     public void persistUser(User user, OnRegistrationListener listener) {
         Realm realm = Realm.getDefaultInstance();
@@ -22,6 +16,7 @@ public class RegistrationInteractorImpl implements RegistrationInteractor {
             realm.beginTransaction();
             realm.copyToRealm(user);
             realm.commitTransaction();
+            listener.onRegistrationSuccess(true);
         } finally {
             realm.close();
         }
