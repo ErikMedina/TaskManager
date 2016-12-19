@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="admin_name">Admin</string>
+    <string name="create_new_task">Create new task</string>
+    <string name="description">Description</string>
+    <string name="duration">Duration</string>
+    <string name="type">Type</string>
+    <string name="create">Create</string>
+    <string name="fill_empty_fields">Fill empty fields</string>
+</resources>
