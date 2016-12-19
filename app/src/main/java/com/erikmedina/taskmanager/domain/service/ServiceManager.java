@@ -11,10 +11,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceManager {
 
-    private static void createRestAdapterInstance() {
+    public static WebService createWebService() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BuildConfig.API_ENDPOINT)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+        return retrofit.create(WebService.class);
     }
 }

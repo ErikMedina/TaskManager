@@ -7,4 +7,6 @@ package com.erikmedina.taskmanager.ui.admin;
 public interface AdminPresenter {
 
     void createButtonClicked(String description, String duration, String type);
+
+    void webServiceButtonClicked();
 }

@@ -49,6 +49,11 @@ public class AdminActivity extends BaseActivity implements AdminView {
                 tietTaskType.getText().toString());
     }
 
+    @OnClick(R.id.b_web_service_admin)
+    public void onWebServiceButtonClicked(){
+        presenter.webServiceButtonClicked();
+    }
+
     @Override
     public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();

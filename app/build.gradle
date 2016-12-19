@@ -14,7 +14,7 @@ android {
     }
     buildTypes {
         all {
-            buildConfigField("String", "API_ENDPOINT", "\"https://data.ct.gov/resource/hma6-9xbg.json\"")
+            buildConfigField("String", "API_ENDPOINT", "\"https://data.ct.gov/resource/hma6-9xbg.json/\"")
         }
         debug {
             applicationIdSuffix '.debug'

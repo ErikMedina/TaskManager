@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="style_button_admin">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_margin">@dimen/margin_field</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>
