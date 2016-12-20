@@ -4,16 +4,16 @@ package com.erikmedina.taskmanager.domain.entity;
  * Created by erik on 17/12/16.
  */
 
-public class Farmer {
+public class Farm {
 
     private String zipcode;
     private Location1 location1;
     private String item;
     private String business;
-    private String farmerId;
+    private String farmer_id;
     private String category;
     private String l;
-    private String farmName;
+    private String farm_name;
     private String phone1;
     private Website website;
     private String suite;
@@ -50,12 +50,12 @@ public class Farmer {
         this.business = business;
     }
 
-    public String getFarmerId() {
-        return farmerId;
+    public String getFarmer_id() {
+        return farmer_id;
     }
 
-    public void setFarmerId(String farmerId) {
-        this.farmerId = farmerId;
+    public void setFarmer_id(String farmer_id) {
+        this.farmer_id = farmer_id;
     }
 
     public String getCategory() {
@@ -74,12 +74,12 @@ public class Farmer {
         this.l = l;
     }
 
-    public String getFarmName() {
-        return farmName;
+    public String getFarm_name() {
+        return farm_name;
     }
 
-    public void setFarmName(String farmName) {
-        this.farmName = farmName;
+    public void setFarm_name(String farm_name) {
+        this.farm_name = farm_name;
     }
 
     public String getPhone1() {
