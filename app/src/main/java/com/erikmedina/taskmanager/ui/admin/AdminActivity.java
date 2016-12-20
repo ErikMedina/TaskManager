@@ -1,5 +1,6 @@
 package com.erikmedina.taskmanager.ui.admin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
@@ -8,6 +9,7 @@ import android.widget.Toast;
 
 import com.erikmedina.taskmanager.R;
 import com.erikmedina.taskmanager.ui.base.BaseActivity;
+import com.erikmedina.taskmanager.ui.farm.FarmActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -57,5 +59,11 @@ public class AdminActivity extends BaseActivity implements AdminView {
     @Override
     public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void goToFarmActivity() {
+        Intent intent = new Intent(this,FarmActivity.class);
+        startActivity(intent);
     }
 }

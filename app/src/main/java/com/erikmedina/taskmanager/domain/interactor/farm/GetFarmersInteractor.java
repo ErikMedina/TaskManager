@@ -1,6 +1,6 @@
 package com.erikmedina.taskmanager.domain.interactor.farm;
 
-import com.erikmedina.taskmanager.domain.entity.Farmer;
+import com.erikmedina.taskmanager.domain.entity.Farm;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public interface GetFarmersInteractor {
 
     interface OnGetFarmersListener {
 
-        void onGetFarmersSuccess(List<Farmer> farmers);
+        void onGetFarmersSuccess(List<Farm> farmers);
 
         void onGetFarmersError(String error);
     }

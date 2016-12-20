@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_field"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/farm_name"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_farm_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Granja morena" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/farm_location"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_farm_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="location farm" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/farm_business"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_farm_business"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="business" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/farm_phone"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_farm_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="phone" />
+    </LinearLayout>
+
+</LinearLayout>

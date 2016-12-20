@@ -6,4 +6,6 @@ package com.erikmedina.taskmanager.ui.admin;
 public interface AdminView {
 
     void showMessage(String message);
+
+    void goToFarmActivity();
 }

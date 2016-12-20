@@ -1,6 +1,6 @@
 package com.erikmedina.taskmanager.domain.service;
 
-import com.erikmedina.taskmanager.domain.entity.Farmer;
+import com.erikmedina.taskmanager.domain.entity.Farm;
 
 import java.util.List;
 
@@ -17,6 +17,6 @@ public interface WebService {
 
     @Headers("Accept:application/json")
     @GET(".")
-    Call<List<Farmer>> getWebService(@Query("category") String category,
-                                     @Query("item") String item);
+    Call<List<Farm>> getWebService(@Query("category") String category,
+                                   @Query("item") String item);
 }

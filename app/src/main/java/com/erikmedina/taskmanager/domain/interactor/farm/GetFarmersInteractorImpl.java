@@ -1,6 +1,6 @@
 package com.erikmedina.taskmanager.domain.interactor.farm;
 
-import com.erikmedina.taskmanager.domain.entity.Farmer;
+import com.erikmedina.taskmanager.domain.entity.Farm;
 import com.erikmedina.taskmanager.domain.service.ServiceManager;
 import com.erikmedina.taskmanager.domain.service.WebService;
 
@@ -23,17 +23,17 @@ public class GetFarmersInteractorImpl implements GetFarmersInteractor {
 
     @Override
     public void execute(String category, String item, final OnGetFarmersListener listener) {
-        Call<List<Farmer>> call =webService.getWebService(category,item);
-        call.enqueue(new Callback<List<Farmer>>() {
+        Call<List<Farm>> call =webService.getWebService(category,item);
+        call.enqueue(new Callback<List<Farm>>() {
             @Override
-            public void onResponse(Call<List<Farmer>> call, Response<List<Farmer>> response) {
+            public void onResponse(Call<List<Farm>> call, Response<List<Farm>> response) {
                 if(response.isSuccessful()){
                     listener.onGetFarmersSuccess(response.body());
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Farmer>> call, Throwable t) {
+            public void onFailure(Call<List<Farm>> call, Throwable t) {
 
             }
         });
