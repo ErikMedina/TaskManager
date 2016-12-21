@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.erikmedina.taskmanager.R;
 import com.erikmedina.taskmanager.ui.base.BaseActivity;
@@ -41,9 +42,19 @@ public class RegistrationActivity extends BaseActivity implements RegistrationVi
     }
 
     @OnClick(R.id.b_sign_in_registration)
-    public void onRegisterButtonClicked(){
+    public void onRegisterButtonClicked() {
         presenter.registerUser(tietUsernameRegistration.getText().toString(),
                 tietPasswordRegistration.getText().toString(),
                 sUserTypeRegistration.getSelectedItem().toString());
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void finishActivity() {
+        finish();
     }
 }
