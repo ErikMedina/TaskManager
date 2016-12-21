@@ -1,4 +1,4 @@
-package com.erikmedina.taskmanager.ui.login;
+package com.erikmedina.taskmanager.domain.interactor.user;
 
 import com.erikmedina.taskmanager.model.User;
 

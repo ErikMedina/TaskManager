@@ -5,4 +5,8 @@ package com.erikmedina.taskmanager.ui.registration;
  */
 
 public interface RegistrationView {
+
+    void showMessage(String message);
+
+    void finishActivity();
 }
