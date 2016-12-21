@@ -1,5 +1,7 @@
 package com.erikmedina.taskmanager.ui.login;
 
+import com.erikmedina.taskmanager.domain.interactor.user.LoginInteractor;
+import com.erikmedina.taskmanager.domain.interactor.user.LoginInteractorImpl;
 import com.erikmedina.taskmanager.model.User;
 import com.erikmedina.taskmanager.util.Utils;
 
