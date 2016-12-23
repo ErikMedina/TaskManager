@@ -15,5 +15,5 @@ public interface RegisterUserInteractor {
         void onRegisterUserError(String error);
     }
 
-    void persistUser(User user, OnRegisterUserListener listener);
+    void execute(User user, OnRegisterUserListener listener);
 }

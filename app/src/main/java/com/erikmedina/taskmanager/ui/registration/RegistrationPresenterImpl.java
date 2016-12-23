@@ -2,8 +2,8 @@ package com.erikmedina.taskmanager.ui.registration;
 
 import com.erikmedina.taskmanager.domain.interactor.user.RegisterUserInteractor;
 import com.erikmedina.taskmanager.domain.interactor.user.RegisterUserInteractorImpl;
-import com.erikmedina.taskmanager.domain.interactor.user.UserExistsInteractor;
-import com.erikmedina.taskmanager.domain.interactor.user.UserExistsInteractorImpl;
+import com.erikmedina.taskmanager.domain.interactor.user.CheckIfUserExistsInteractor;
+import com.erikmedina.taskmanager.domain.interactor.user.CheckIfUserExistsInteractorImpl;
 import com.erikmedina.taskmanager.model.User;
 
 /**
@@ -12,23 +12,23 @@ import com.erikmedina.taskmanager.model.User;
 public class RegistrationPresenterImpl implements RegistrationPresenter {
 
     private RegistrationView view;
-    private UserExistsInteractor userExistsInteractor;
+    private CheckIfUserExistsInteractor checkIfUserExistsInteractor;
     private RegisterUserInteractor registerUserInteractor;
 
     public RegistrationPresenterImpl(RegistrationView view) {
         this.view = view;
         this.registerUserInteractor = new RegisterUserInteractorImpl();
-        this.userExistsInteractor = new UserExistsInteractorImpl();
+        this.checkIfUserExistsInteractor = new CheckIfUserExistsInteractorImpl();
     }
 
     @Override
     public void registerUser(final String username, final String password, final String userType) {
-        userExistsInteractor.checkIfUserExists(username, new UserExistsInteractor.OnUserExistsListener() {
+        checkIfUserExistsInteractor.execute(username, new CheckIfUserExistsInteractor.OnUserExistsListener() {
             @Override
             public void onUserExistsSuccess(boolean userExists) {
                 if (!userExists) {
                     User user = new User(username, password, userType);
-                    registerUserInteractor.persistUser(user, new RegisterUserInteractor.OnRegisterUserListener() {
+                    registerUserInteractor.execute(user, new RegisterUserInteractor.OnRegisterUserListener() {
                         @Override
                         public void onRegisterUserSuccess(boolean isSuccessfulRegistration) {
                             if (view != null) {
@@ -43,7 +43,9 @@ public class RegistrationPresenterImpl implements RegistrationPresenter {
                         }
                     });
                 } else {
-                    view.showMessage("User already exists");
+                    if (view != null) {
+                        view.showMessage("User already exists");
+                    }
                 }
             }
 

@@ -4,7 +4,7 @@ package com.erikmedina.taskmanager.domain.interactor.user;
  * Created by erik on 23/12/16.
  */
 
-public interface UserExistsInteractor {
+public interface CheckIfUserExistsInteractor {
 
     interface OnUserExistsListener {
 
@@ -13,5 +13,5 @@ public interface UserExistsInteractor {
         void onUserExistsError(String error);
     }
 
-    void checkIfUserExists(String username, OnUserExistsListener listener);
+    void execute(String username, OnUserExistsListener listener);
 }

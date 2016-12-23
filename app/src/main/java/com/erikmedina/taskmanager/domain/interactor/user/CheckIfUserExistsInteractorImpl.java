@@ -5,21 +5,20 @@ import com.erikmedina.taskmanager.model.User;
 import io.realm.Realm;
 
 /**
- * Created by erik on 17/12/16.
+ * Created by erik on 23/12/16.
  */
-public class LoginInteractorImpl implements LoginInteractor {
+public class CheckIfUserExistsInteractorImpl implements CheckIfUserExistsInteractor {
 
     @Override
-    public void checkCredentials(String username, String password, OnLoginListener listener) {
+    public void execute(String username, OnUserExistsListener listener) {
         Realm realm = Realm.getDefaultInstance();
         User user = realm.where(User.class)
                 .equalTo("username", username)
-                .equalTo("password", password)
                 .findFirst();
         if (user != null) {
-            listener.onLoginSuccess(user);
+            listener.onUserExistsSuccess(true);
         } else {
-            listener.onLoginError("Credentials are not valid");
+            listener.onUserExistsSuccess(false);
         }
     }
 }
