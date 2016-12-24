@@ -10,7 +10,7 @@ import io.realm.Realm;
 public class RegisterUserInteractorImpl implements RegisterUserInteractor {
 
     @Override
-    public void persistUser(User user, OnRegisterUserListener listener) {
+    public void execute(User user, OnRegisterUserListener listener) {
         Realm realm = Realm.getDefaultInstance();
         try {
             realm.beginTransaction();

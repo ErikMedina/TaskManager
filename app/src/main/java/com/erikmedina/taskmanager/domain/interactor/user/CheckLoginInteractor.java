@@ -6,7 +6,7 @@ import com.erikmedina.taskmanager.model.User;
  * Created by erik on 17/12/16.
  */
 
-public interface LoginInteractor {
+public interface CheckLoginInteractor {
 
     interface OnLoginListener {
 
@@ -16,5 +16,5 @@ public interface LoginInteractor {
 
     }
 
-    void checkCredentials(String username, String password, OnLoginListener listener);
+    void execute(String username, String password, OnLoginListener listener);
 }

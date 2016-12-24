@@ -1,7 +1,7 @@
 package com.erikmedina.taskmanager.ui.login;
 
-import com.erikmedina.taskmanager.domain.interactor.user.LoginInteractor;
-import com.erikmedina.taskmanager.domain.interactor.user.LoginInteractorImpl;
+import com.erikmedina.taskmanager.domain.interactor.user.CheckLoginInteractor;
+import com.erikmedina.taskmanager.domain.interactor.user.CheckLoginInteractorImpl;
 import com.erikmedina.taskmanager.model.User;
 import com.erikmedina.taskmanager.util.Utils;
 
@@ -11,11 +11,11 @@ import com.erikmedina.taskmanager.util.Utils;
 public class LoginPresenterImpl implements LoginPresenter {
 
     private LoginView view;
-    private LoginInteractor loginInteractor;
+    private CheckLoginInteractor checkLoginInteractor;
 
     public LoginPresenterImpl(LoginView view) {
         this.view = view;
-        loginInteractor = new LoginInteractorImpl();
+        checkLoginInteractor = new CheckLoginInteractorImpl();
     }
 
     @Override
@@ -24,7 +24,7 @@ public class LoginPresenterImpl implements LoginPresenter {
             view.showProgressBar();
             view.disableSignInButton();
         }
-        loginInteractor.checkCredentials(username, password, new LoginInteractor.OnLoginListener() {
+        checkLoginInteractor.execute(username, password, new CheckLoginInteractor.OnLoginListener() {
             @Override
             public void onLoginSuccess(User user) {
                 if (view != null) {

@@ -1,5 +1,7 @@
 package com.erikmedina.taskmanager.model;
 
+import java.util.List;
+
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
@@ -12,15 +14,20 @@ public class User extends RealmObject {
     private String username;
     private String password;
     private String userType;
+    private RealmList<RealmInteger> taskTypes;
     private RealmList<Task> tasks;
 
     public User() {
     }
 
-    public User(String username, String password, String userType) {
+    public User(String username, String password, String userType, List<Integer> taskTypes) {
         this.username = username;
         this.password = password;
         this.userType = userType;
+        this.taskTypes = new RealmList();
+        for (Integer integer : taskTypes) {
+            this.taskTypes.add(new RealmInteger(integer));
+        }
     }
 
     public String getUsername() {
@@ -45,6 +52,14 @@ public class User extends RealmObject {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public RealmList<RealmInteger> getTaskTypes() {
+        return taskTypes;
+    }
+
+    public void setTaskTypes(RealmList<RealmInteger> tasksTypes) {
+        this.taskTypes = tasksTypes;
     }
 
     public RealmList<Task> getTasks() {
