@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.erikmedina.taskmanager.R;
@@ -25,8 +26,8 @@ public class AdminActivity extends BaseActivity implements AdminView {
     TextInputEditText tietTaskDescription;
     @BindView(R.id.tiet_task_duration)
     TextInputEditText tietTaskDuration;
-    @BindView(R.id.tiet_task_type)
-    TextInputEditText tietTaskType;
+    @BindView(R.id.s_task_type)
+    Spinner sTaskType;
     @BindView(R.id.b_create_task)
     Button bCreateTask;
 
@@ -48,11 +49,11 @@ public class AdminActivity extends BaseActivity implements AdminView {
     public void onCreateButtonClicked() {
         presenter.createButtonClicked(tietTaskDescription.getText().toString(),
                 tietTaskDuration.getText().toString(),
-                tietTaskType.getText().toString());
+                sTaskType.getSelectedItemPosition());
     }
 
     @OnClick(R.id.b_web_service_admin)
-    public void onWebServiceButtonClicked(){
+    public void onWebServiceButtonClicked() {
         presenter.webServiceButtonClicked();
     }
 
@@ -63,7 +64,7 @@ public class AdminActivity extends BaseActivity implements AdminView {
 
     @Override
     public void goToFarmActivity() {
-        Intent intent = new Intent(this,FarmActivity.class);
+        Intent intent = new Intent(this, FarmActivity.class);
         startActivity(intent);
     }
 }

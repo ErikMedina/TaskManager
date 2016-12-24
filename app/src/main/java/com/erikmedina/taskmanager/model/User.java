@@ -25,8 +25,10 @@ public class User extends RealmObject {
         this.password = password;
         this.userType = userType;
         this.taskTypes = new RealmList();
-        for (Integer integer : taskTypes) {
-            this.taskTypes.add(new RealmInteger(integer));
+        if (taskTypes != null) {
+            for (Integer integer : taskTypes) {
+                this.taskTypes.add(new RealmInteger(integer));
+            }
         }
     }
 
