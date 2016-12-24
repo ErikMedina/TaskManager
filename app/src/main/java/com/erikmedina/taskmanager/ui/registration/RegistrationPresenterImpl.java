@@ -1,10 +1,12 @@
 package com.erikmedina.taskmanager.ui.registration;
 
-import com.erikmedina.taskmanager.domain.interactor.user.RegisterUserInteractor;
-import com.erikmedina.taskmanager.domain.interactor.user.RegisterUserInteractorImpl;
 import com.erikmedina.taskmanager.domain.interactor.user.CheckIfUserExistsInteractor;
 import com.erikmedina.taskmanager.domain.interactor.user.CheckIfUserExistsInteractorImpl;
+import com.erikmedina.taskmanager.domain.interactor.user.RegisterUserInteractor;
+import com.erikmedina.taskmanager.domain.interactor.user.RegisterUserInteractorImpl;
 import com.erikmedina.taskmanager.model.User;
+
+import java.util.List;
 
 /**
  * Created by erik on 17/12/16.
@@ -22,12 +24,13 @@ public class RegistrationPresenterImpl implements RegistrationPresenter {
     }
 
     @Override
-    public void registerUser(final String username, final String password, final String userType) {
+    public void registerUser(final String username, final String password, final String userType,
+                             final List skillsSelected) {
         checkIfUserExistsInteractor.execute(username, new CheckIfUserExistsInteractor.OnUserExistsListener() {
             @Override
             public void onUserExistsSuccess(boolean userExists) {
                 if (!userExists) {
-                    User user = new User(username, password, userType);
+                    User user = new User(username, password, userType, skillsSelected);
                     registerUserInteractor.execute(user, new RegisterUserInteractor.OnRegisterUserListener() {
                         @Override
                         public void onRegisterUserSuccess(boolean isSuccessfulRegistration) {
@@ -55,5 +58,12 @@ public class RegistrationPresenterImpl implements RegistrationPresenter {
             }
         });
 
+    }
+
+    @Override
+    public void selectSkillsButtonClicked() {
+        if (view != null) {
+            view.showSkillsSelectionDialog();
+        }
     }
 }
