@@ -16,6 +16,7 @@ public class User extends RealmObject {
     private String userType;
     private RealmList<RealmInteger> taskTypes;
     private RealmList<Task> tasks;
+    private int workLoad;
 
     public User() {
     }
@@ -30,6 +31,7 @@ public class User extends RealmObject {
                 this.taskTypes.add(new RealmInteger(integer));
             }
         }
+        this.tasks = new RealmList();
     }
 
     public String getUsername() {
@@ -68,7 +70,11 @@ public class User extends RealmObject {
         return tasks;
     }
 
-    public void setTasks(RealmList<Task> tasks) {
-        this.tasks = tasks;
+    public int getWorkLoad() {
+        return workLoad;
+    }
+
+    public void setWorkLoad(int workLoad) {
+        this.workLoad = workLoad;
     }
 }
