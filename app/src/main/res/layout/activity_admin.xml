@@ -64,6 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/til_task_duration"
         android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margin_field"
         android:entries="@array/array_task_type"
         app:layout_widthPercent="80%" />
 

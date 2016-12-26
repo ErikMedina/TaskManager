@@ -12,10 +12,20 @@
         android:text="@string/web_service"
         app:layout_widthPercent="30%" />
 
+    <TextView
+        android:id="@+id/tv_task_complete_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/b_web_service_technician"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margin_field"
+        android:text="@string/task_completed_title"
+        android:textStyle="bold" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_tasks_technician"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/b_web_service_technician" />
+        android:layout_below="@id/tv_task_complete_tag" />
 
 </android.support.percent.PercentRelativeLayout>

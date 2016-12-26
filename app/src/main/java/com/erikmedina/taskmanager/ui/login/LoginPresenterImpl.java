@@ -24,32 +24,47 @@ public class LoginPresenterImpl implements LoginPresenter {
             view.showProgressBar();
             view.disableSignInButton();
         }
-        checkLoginInteractor.execute(username, password, new CheckLoginInteractor.OnLoginListener() {
-            @Override
-            public void onLoginSuccess(User user) {
-                if (view != null) {
-                    view.dismissProgressBar();
-                    view.enableSignInButton();
-                    switch (user.getUserType()){
-                        case Utils.ADMIN:
-                            view.goToAdmin();
-                            break;
-                        case Utils.TECHNICIAN:
-                            view.goToTechnician(user);
-                            break;
+        if (areFilledFields(username, password)) {
+            checkLoginInteractor.execute(username, password, new CheckLoginInteractor.OnLoginListener() {
+                @Override
+                public void onLoginSuccess(User user) {
+                    if (view != null) {
+                        view.dismissProgressBar();
+                        view.enableSignInButton();
+                        switch (user.getUserType()) {
+                            case Utils.ADMIN:
+                                view.goToAdmin();
+                                break;
+                            case Utils.TECHNICIAN:
+                                view.goToTechnician(user);
+                                break;
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onLoginError(String error) {
-                if (view != null) {
-                    view.dismissProgressBar();
-                    view.enableSignInButton();
-                    view.showMessage(error);
+                @Override
+                public void onLoginError(String error) {
+                    if (view != null) {
+                        view.dismissProgressBar();
+                        view.enableSignInButton();
+                        view.showMessage(error);
+                    }
                 }
+            });
+        } else {
+            if (view != null) {
+                view.dismissProgressBar();
+                view.enableSignInButton();
+                view.showMessage("Fill empty fields");
             }
-        });
+        }
+    }
+
+    private boolean areFilledFields(String username, String password) {
+        if (!username.isEmpty() && !password.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 
     @Override

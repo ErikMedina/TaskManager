@@ -30,48 +30,61 @@ public class RegistrationPresenterImpl implements RegistrationPresenter {
         if (view != null) {
             view.showProgressBar();
         }
-        if (userType.matches(Utils.ADMIN) || (skillsSelected != null && skillsSelected.size() > 0)) {
-            checkIfUserExistsInteractor.execute(username, new CheckIfUserExistsInteractor.OnUserExistsListener() {
-                @Override
-                public void onUserExistsSuccess(boolean userExists) {
-                    if (!userExists) {
-                        User user = new User(username, password, userType, skillsSelected);
-                        registerUserInteractor.execute(user, new RegisterUserInteractor.OnRegisterUserListener() {
-                            @Override
-                            public void onRegisterUserSuccess(boolean isSuccessfulRegistration) {
-                                if (view != null) {
-                                    view.showMessage("User has been register");
-                                    view.finishActivity();
+        if (areFilledFields(username, password)) {
+            if (userType.matches(Utils.ADMIN) || (skillsSelected != null && skillsSelected.size() > 0)) {
+                checkIfUserExistsInteractor.execute(username, new CheckIfUserExistsInteractor.OnUserExistsListener() {
+                    @Override
+                    public void onUserExistsSuccess(boolean userExists) {
+                        if (!userExists) {
+                            User user = new User(username, password, userType, skillsSelected);
+                            registerUserInteractor.execute(user, new RegisterUserInteractor.OnRegisterUserListener() {
+                                @Override
+                                public void onRegisterUserSuccess(boolean isSuccessfulRegistration) {
+                                    if (view != null) {
+                                        view.showMessage("User has been register");
+                                        view.finishActivity();
+                                    }
                                 }
-                            }
 
-                            @Override
-                            public void onRegisterUserError(String error) {
-                                if (view != null) {
-                                    view.hideProgressBar();
+                                @Override
+                                public void onRegisterUserError(String error) {
+                                    if (view != null) {
+                                        view.hideProgressBar();
+                                    }
                                 }
+                            });
+                        } else {
+                            if (view != null) {
+                                view.hideProgressBar();
+                                view.showMessage("User already exists");
                             }
-                        });
-                    } else {
-                        if (view != null) {
-                            view.hideProgressBar();
-                            view.showMessage("User already exists");
                         }
                     }
-                }
 
-                @Override
-                public void onUserExistsError(String error) {
+                    @Override
+                    public void onUserExistsError(String error) {
 
+                    }
+                });
+            } else {
+                if (view != null) {
+                    view.hideProgressBar();
+                    view.showMessage("Choose at least one skill");
                 }
-            });
+            }
         } else {
             if (view != null) {
                 view.hideProgressBar();
-                view.showMessage("Choose at least one skill");
+                view.showMessage("Fill empty fields");
             }
         }
+    }
 
+    private boolean areFilledFields(String username, String password) {
+        if (!username.isEmpty() && !password.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 
     @Override

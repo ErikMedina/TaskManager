@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="name_technician">Technician</string>
+    <string name="task_completed_title">Click on task to mark it as completed</string>
 </resources>
