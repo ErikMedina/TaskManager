@@ -12,9 +12,9 @@ public interface GetUsersBySkillInteractor {
 
     interface OnGetUsersBySkillListener {
 
-        void OnGetUsersBySkillSuccess(List<User> users);
+        void onGetUsersBySkillSuccess(List<User> users);
 
-        void OnGetUsersBySkillError(String message);
+        void onGetUsersBySkillError(String message);
     }
 
     void execute(int type, OnGetUsersBySkillListener listener);

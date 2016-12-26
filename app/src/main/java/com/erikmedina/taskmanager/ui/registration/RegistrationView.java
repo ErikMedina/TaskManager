@@ -11,4 +11,8 @@ public interface RegistrationView {
     void finishActivity();
 
     void showSkillsSelectionDialog();
+
+    void showProgressBar();
+
+    void hideProgressBar();
 }

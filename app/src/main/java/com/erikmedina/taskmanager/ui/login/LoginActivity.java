@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.erikmedina.taskmanager.R;
+import com.erikmedina.taskmanager.model.User;
 import com.erikmedina.taskmanager.ui.admin.AdminActivity;
 import com.erikmedina.taskmanager.ui.base.BaseActivity;
 import com.erikmedina.taskmanager.ui.registration.RegistrationActivity;
@@ -86,12 +87,15 @@ public class LoginActivity extends BaseActivity implements LoginView {
     public void goToAdmin() {
         Intent intent = new Intent(this, AdminActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
-    public void goToTechnician() {
+    public void goToTechnician(User user) {
         Intent intent = new Intent(this, TechnicianActivity.class);
+        intent.putExtra("id", user.getId());
         startActivity(intent);
+        finish();
     }
 
     @Override

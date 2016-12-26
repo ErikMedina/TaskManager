@@ -17,9 +17,9 @@ public class GetUsersBySkillInteractorImpl implements GetUsersBySkillInteractor 
                 .equalTo("taskTypes.value", type)
                 .findAll();
         if (results.size() > 0) {
-            listener.OnGetUsersBySkillSuccess(results);
+            listener.onGetUsersBySkillSuccess(results);
         } else {
-            listener.OnGetUsersBySkillError("There are not technicians with that skill");
+            listener.onGetUsersBySkillError("There are not technicians with that skill");
         }
     }
 }

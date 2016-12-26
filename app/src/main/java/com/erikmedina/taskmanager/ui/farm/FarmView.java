@@ -11,4 +11,8 @@ import java.util.List;
 public interface FarmView {
 
     void setFarms(List<Farm> farms);
+
+    void showProgressBar();
+
+    void hideShowProgressBar();
 }

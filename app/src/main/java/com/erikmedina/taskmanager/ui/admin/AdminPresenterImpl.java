@@ -34,7 +34,7 @@ public class AdminPresenterImpl implements AdminPresenter {
             final Task task = new Task(description, Integer.parseInt(duration), type);
             getUsersBySkillInteractor.execute(type, new GetUsersBySkillInteractor.OnGetUsersBySkillListener() {
                 @Override
-                public void OnGetUsersBySkillSuccess(List<User> users) {
+                public void onGetUsersBySkillSuccess(List<User> users) {
                     final User user = getUserWithLessWorkLoad(users);
                     addTaskToUserInteractor.execute(user, task, new AddTaskToUserInteractor.OnAddTaskToUserListener() {
                         @Override
@@ -63,7 +63,7 @@ public class AdminPresenterImpl implements AdminPresenter {
                 }
 
                 @Override
-                public void OnGetUsersBySkillError(String message) {
+                public void onGetUsersBySkillError(String message) {
                     if (view != null) {
                         view.showMessage(message);
                     }
