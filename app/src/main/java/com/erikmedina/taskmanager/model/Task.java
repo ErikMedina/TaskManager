@@ -11,6 +11,7 @@ public class Task extends RealmObject {
     private String description;
     private int duration;
     private int type;
+    private boolean isCompleted;
 
     public Task() {
     }
@@ -43,5 +44,13 @@ public class Task extends RealmObject {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public boolean isCompleted() {
+        return isCompleted;
+    }
+
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
     }
 }

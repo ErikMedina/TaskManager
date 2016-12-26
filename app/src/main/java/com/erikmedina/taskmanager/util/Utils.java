@@ -12,9 +12,14 @@ public class Utils {
     public static final int TECHNICIAN_ID = 1;
 
     public class SkillType {
-        public static final int SUPPORT = 0;
-        public static final int REPAIRMENT = 1;
-        public static final int INSTALLATION = 2;
-        public static final int COMMUNICATION = 3;
+        public static final int SUPPORT_ID = 0;
+        public static final int REPAIRMENT_ID = 1;
+        public static final int INSTALLATION_ID = 2;
+        public static final int COMMUNICATION_ID = 3;
+
+        public static final String SUPPORT = "Support";
+        public static final String REPAIRMENT = "Repairment";
+        public static final String INSTALLATION = "Installation";
+        public static final String COMMUNICATION = "Communication";
     }
 }

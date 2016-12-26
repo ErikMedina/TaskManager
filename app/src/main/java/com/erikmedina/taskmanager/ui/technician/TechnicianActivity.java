@@ -25,6 +25,7 @@ public class TechnicianActivity extends BaseActivity implements TechnicianView {
     @BindView(R.id.rv_tasks_technician)
     RecyclerView rvTasksTechnician;
 
+
     TechnicianPresenter presenter;
     TaskAdapter adapter;
 
@@ -38,7 +39,11 @@ public class TechnicianActivity extends BaseActivity implements TechnicianView {
         Intent intent = getIntent();
         int userId = intent.getIntExtra("id", 0);
 
-        adapter = new TaskAdapter(this);
+        adapter = new TaskAdapter(this, userId, new TaskAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Task task) {
+            }
+        });
         rvTasksTechnician.setAdapter(adapter);
         rvTasksTechnician.setLayoutManager(new LinearLayoutManager(this));
         presenter.initializeUser(userId);

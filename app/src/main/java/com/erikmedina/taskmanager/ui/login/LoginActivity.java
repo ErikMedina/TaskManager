@@ -87,7 +87,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
     public void goToAdmin() {
         Intent intent = new Intent(this, AdminActivity.class);
         startActivity(intent);
-        finish();
     }
 
     @Override
@@ -95,7 +94,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
         Intent intent = new Intent(this, TechnicianActivity.class);
         intent.putExtra("id", user.getId());
         startActivity(intent);
-        finish();
     }
 
     @Override

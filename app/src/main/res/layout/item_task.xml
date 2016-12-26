@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_field"
+    android:id="@+id/rl_task_item"
+    android:background="@color/gold"
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/ll_task_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -25,8 +28,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_task_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/ll_task_type"
         android:orientation="horizontal">
 
         <TextView
@@ -44,8 +49,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_task_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/ll_task_duration"
         android:orientation="horizontal">
 
         <TextView
@@ -61,4 +68,4 @@
             tools:text="This is a task" />
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
