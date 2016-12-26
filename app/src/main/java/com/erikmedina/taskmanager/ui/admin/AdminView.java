@@ -8,4 +8,8 @@ public interface AdminView {
     void showMessage(String message);
 
     void goToFarmActivity();
+
+    void showProgressBar();
+
+    void hideProgressBar();
 }

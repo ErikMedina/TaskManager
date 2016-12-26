@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_field"
-    android:background="@color/colorPrimaryDark"
-    android:orientation="vertical"
-    android:paddingBottom="10dp"
-    android:paddingTop="10dp">
+    android:id="@+id/rl_task_item"
+    android:background="@color/gold"
+    android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/ll_task_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -17,68 +17,55 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/farm_id"
+            android:text="@string/task_type"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_farm_id"
+            android:id="@+id/tv_task_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="666" />
+            tools:text="Type 1" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_task_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/ll_task_type"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/farm_name"
+            android:text="@string/task_duration"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_farm_name"
+            android:id="@+id/tv_task_duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="My farm" />
+            android:text="@string/task_duration_hours"
+            tools:text="1" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_task_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/ll_task_duration"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/farm_zip_code"
+            android:text="@string/task_description"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_farm_zip_code"
+            android:id="@+id/tv_task_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="999" />
+            tools:text="This is a task" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/farm_phone"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_farm_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="916548789" />
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

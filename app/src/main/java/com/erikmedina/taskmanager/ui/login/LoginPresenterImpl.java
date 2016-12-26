@@ -35,7 +35,7 @@ public class LoginPresenterImpl implements LoginPresenter {
                             view.goToAdmin();
                             break;
                         case Utils.TECHNICIAN:
-                            view.goToTechnician();
+                            view.goToTechnician(user);
                             break;
                     }
                 }

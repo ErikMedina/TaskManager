@@ -14,6 +14,11 @@ public class RegisterUserInteractorImpl implements RegisterUserInteractor {
         Realm realm = Realm.getDefaultInstance();
         try {
             realm.beginTransaction();
+            int nextId = 0;
+            if (realm.where(User.class).max("id") != null) {
+                nextId = (realm.where(User.class).max("id").intValue() + 1);
+            }
+            user.setId(nextId);
             realm.copyToRealm(user);
             realm.commitTransaction();
             listener.onRegisterUserSuccess(true);

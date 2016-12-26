@@ -6,8 +6,6 @@ import com.erikmedina.taskmanager.domain.interactor.farm.GetFarmersInteractorImp
 
 import java.util.List;
 
-import timber.log.Timber;
-
 /**
  * Created by erik on 20/12/16.
  */
@@ -23,16 +21,23 @@ public class FarmPresenterImpl implements FarmPresenter {
 
     @Override
     public void getFarms() {
+        if (view != null) {
+            view.showProgressBar();
+        }
         getFarmersInteractor.execute("Fruit", "Peaches", new GetFarmersInteractor.OnGetFarmersListener() {
             @Override
             public void onGetFarmersSuccess(List<Farm> farmers) {
-                Timber.i("He recuperado los farmers");
-                view.setFarms(farmers);
+                if (view != null) {
+                    view.hideShowProgressBar();
+                    view.setFarms(farmers);
+                }
             }
 
             @Override
             public void onGetFarmersError(String error) {
-
+                if (view != null) {
+                    view.hideShowProgressBar();
+                }
             }
         });
     }

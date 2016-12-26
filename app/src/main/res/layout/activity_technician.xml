@@ -9,8 +9,13 @@
         android:id="@+id/b_web_service_technician"
         style="@style/style_button_admin"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/b_create_task"
         android:text="@string/web_service"
         app:layout_widthPercent="30%" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_tasks_technician"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/b_web_service_technician" />
 
 </android.support.percent.PercentRelativeLayout>

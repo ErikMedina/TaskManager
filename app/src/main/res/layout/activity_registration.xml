@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:gravity="center_vertical">
+
+    <ProgressBar
+        android:id="@+id/pb_registration"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="10dp"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til_username_registration"
@@ -48,14 +59,14 @@
 
     <Button
         android:id="@+id/b_select_skills"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/s_user_type_registration"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:background="@color/colorPrimaryDark"
         android:enabled="false"
-        android:text="@string/select_skills" />
+        android:text="@string/select_skills"
+        app:layout_widthPercent="30%" />
 
     <Button
         android:id="@+id/b_sign_in_registration"
@@ -66,5 +77,6 @@
         android:background="@color/colorPrimaryDark"
         android:text="@string/register"
         app:layout_widthPercent="30%" />
+
 
 </android.support.percent.PercentRelativeLayout>

@@ -7,4 +7,6 @@ package com.erikmedina.taskmanager.ui.technician;
 public interface TechnicianPresenter {
 
     void webServiceButtonClicked();
+
+    void initializeUser(int userId);
 }

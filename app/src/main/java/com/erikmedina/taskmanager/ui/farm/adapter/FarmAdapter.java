@@ -20,12 +20,12 @@ import butterknife.ButterKnife;
  * Created by erik on 20/12/16.
  */
 
-public class FarmsAdapter extends RecyclerView.Adapter<FarmsAdapter.ViewHolder> {
+public class FarmAdapter extends RecyclerView.Adapter<FarmAdapter.ViewHolder> {
 
     private List<Farm> farms;
     private Context context;
 
-    public FarmsAdapter(Context context) {
+    public FarmAdapter(Context context) {
         this.context = context;
         farms = new ArrayList<>();
     }
@@ -38,10 +38,10 @@ public class FarmsAdapter extends RecyclerView.Adapter<FarmsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.tvFarmName.setText(farms.get(position).getFarmer_id());
-//        holder.tvFarmLocation.setText(farms.get(position).getLocation1().getHumanAddress());
-        holder.tvFarmBusiness.setText(farms.get(position).getBusiness());
-//        holder.tvFarmPhone.setText(farms.get(position).getPhone1());
+        holder.tvFarmId.setText(farms.get(position).getFarmer_id());
+        holder.tvFarmName.setText(farms.get(position).getFarm_name());
+        holder.tvFarmZipCode.setText(farms.get(position).getZipcode());
+        holder.tvFarmPhone.setText(farms.get(position).getPhone1());
     }
 
     @Override
@@ -56,12 +56,12 @@ public class FarmsAdapter extends RecyclerView.Adapter<FarmsAdapter.ViewHolder> 
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
+        @BindView(R.id.tv_farm_id)
+        TextView tvFarmId;
         @BindView(R.id.tv_farm_name)
         TextView tvFarmName;
-        @BindView(R.id.tv_farm_location)
-        TextView tvFarmLocation;
-        @BindView(R.id.tv_farm_business)
-        TextView tvFarmBusiness;
+        @BindView(R.id.tv_farm_zip_code)
+        TextView tvFarmZipCode;
         @BindView(R.id.tv_farm_phone)
         TextView tvFarmPhone;
 

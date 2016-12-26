@@ -4,6 +4,7 @@ import java.util.List;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by erik on 18/12/16.
@@ -11,11 +12,14 @@ import io.realm.RealmObject;
 
 public class User extends RealmObject {
 
+    @PrimaryKey
+    private int id;
     private String username;
     private String password;
     private String userType;
     private RealmList<RealmInteger> taskTypes;
     private RealmList<Task> tasks;
+    private int workLoad;
 
     public User() {
     }
@@ -25,9 +29,20 @@ public class User extends RealmObject {
         this.password = password;
         this.userType = userType;
         this.taskTypes = new RealmList();
-        for (Integer integer : taskTypes) {
-            this.taskTypes.add(new RealmInteger(integer));
+        if (taskTypes != null) {
+            for (Integer integer : taskTypes) {
+                this.taskTypes.add(new RealmInteger(integer));
+            }
         }
+        this.tasks = new RealmList();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -66,7 +81,11 @@ public class User extends RealmObject {
         return tasks;
     }
 
-    public void setTasks(RealmList<Task> tasks) {
-        this.tasks = tasks;
+    public int getWorkLoad() {
+        return workLoad;
+    }
+
+    public void setWorkLoad(int workLoad) {
+        this.workLoad = workLoad;
     }
 }

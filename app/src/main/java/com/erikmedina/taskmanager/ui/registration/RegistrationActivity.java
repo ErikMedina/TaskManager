@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -39,6 +40,8 @@ public class RegistrationActivity extends BaseActivity implements RegistrationVi
 
     RegistrationPresenter presenter;
     List skillsSelected;
+    @BindView(R.id.pb_registration)
+    ProgressBar pbRegistration;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -95,7 +98,7 @@ public class RegistrationActivity extends BaseActivity implements RegistrationVi
 
     @Override
     public void showSkillsSelectionDialog() {
-        final List<Integer> skillsSelected = new ArrayList();
+        final List skillsSelected = new ArrayList<>();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.select_skills)
                 .setMultiChoiceItems(R.array.array_task_type, null,
@@ -125,7 +128,17 @@ public class RegistrationActivity extends BaseActivity implements RegistrationVi
         builder.show();
     }
 
-    private void setSkillsSelected(List<Integer> skillsSelected) {
+    private void setSkillsSelected(List skillsSelected) {
         this.skillsSelected = skillsSelected;
+    }
+
+    @Override
+    public void showProgressBar() {
+        pbRegistration.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        pbRegistration.setVisibility(View.GONE);
     }
 }
