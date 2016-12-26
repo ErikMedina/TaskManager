@@ -4,6 +4,8 @@ import com.erikmedina.taskmanager.domain.interactor.user.AddTaskToUserInteractor
 import com.erikmedina.taskmanager.domain.interactor.user.AddTaskToUserInteractorImpl;
 import com.erikmedina.taskmanager.domain.interactor.user.GetUsersBySkillInteractor;
 import com.erikmedina.taskmanager.domain.interactor.user.GetUsersBySkillInteractorImpl;
+import com.erikmedina.taskmanager.domain.interactor.user.UpdateUserWorkLoadInteractor;
+import com.erikmedina.taskmanager.domain.interactor.user.UpdateUserWorkLoadInteractorImpl;
 import com.erikmedina.taskmanager.model.Task;
 import com.erikmedina.taskmanager.model.User;
 
@@ -17,11 +19,13 @@ public class AdminPresenterImpl implements AdminPresenter {
     private AdminView view;
     private GetUsersBySkillInteractor getUsersBySkillInteractor;
     private AddTaskToUserInteractor addTaskToUserInteractor;
+    private UpdateUserWorkLoadInteractor updateUserWorkLoadInteractor;
 
     public AdminPresenterImpl(AdminView view) {
         this.view = view;
         getUsersBySkillInteractor = new GetUsersBySkillInteractorImpl();
         addTaskToUserInteractor = new AddTaskToUserInteractorImpl();
+        updateUserWorkLoadInteractor = new UpdateUserWorkLoadInteractorImpl();
     }
 
     @Override
@@ -31,13 +35,24 @@ public class AdminPresenterImpl implements AdminPresenter {
             getUsersBySkillInteractor.execute(type, new GetUsersBySkillInteractor.OnGetUsersBySkillListener() {
                 @Override
                 public void OnGetUsersBySkillSuccess(List<User> users) {
-                    User user = getUserWithLessWorkLoad(users);
+                    final User user = getUserWithLessWorkLoad(users);
                     addTaskToUserInteractor.execute(user, task, new AddTaskToUserInteractor.OnAddTaskToUserListener() {
                         @Override
                         public void onAddTaskToUserSuccess() {
-                            if (view != null) {
-                                view.showMessage("Task has been created and assigned to a technician");
-                            }
+                            updateUserWorkLoadInteractor.execute(user, task.getDuration(), true,
+                                    new UpdateUserWorkLoadInteractor.OnUpdateUserWorkLoadListener() {
+                                        @Override
+                                        public void onUpdateUserWorkLoadSuccess() {
+                                            if (view != null) {
+                                                view.showMessage("Task has been created and assigned to a technician");
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onUpdateUserWorkLoadError(String error) {
+
+                                        }
+                                    });
                         }
 
                         @Override
@@ -68,11 +83,11 @@ public class AdminPresenterImpl implements AdminPresenter {
     }
 
     private User getUserWithLessWorkLoad(List<User> users) {
-        int min = users.get(0).getWorkLoad();
+        int minWorkLoad = users.get(0).getWorkLoad();
         int userPosition = 0;
         for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getWorkLoad() < min) {
-                min = users.get(i).getWorkLoad();
+            if (users.get(i).getWorkLoad() < minWorkLoad) {
+                minWorkLoad = users.get(i).getWorkLoad();
                 userPosition = i;
             }
         }
