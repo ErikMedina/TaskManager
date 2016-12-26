@@ -6,6 +6,8 @@ package com.erikmedina.taskmanager.domain.entity;
 
 public class Website {
 
+    private String url;
+
     public String getUrl() {
         return url;
     }
@@ -13,6 +15,4 @@ public class Website {
     public void setUrl(String url) {
         this.url = url;
     }
-
-    private String url;
 }

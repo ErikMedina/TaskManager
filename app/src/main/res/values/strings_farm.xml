@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="farms_name">Farms</string>
-    <string name="farm_name">Name: </string>
-    <string name="farm_location">Location: </string>
-    <string name="farm_business">Business: </string>
-    <string name="farm_phone">Phone: </string>
+    <string name="farm_id">"Id: "</string>
+    <string name="farm_name">"Name: "</string>
+    <string name="farm_location">"Location: "</string>
+    <string name="farm_business">"Business: "</string>
+    <string name="farm_zip_code">"Zip code: "</string>
+    <string name="farm_phone">"Phone: "</string>
 </resources>
